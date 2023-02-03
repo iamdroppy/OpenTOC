@@ -9,13 +9,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="CoreTOC.dat">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+      <PackageReference Include="Spectre.Console" Version="0.46.1-preview.0.4" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Spectre.Console" Version="0.46.1-preview.0.4" />
+      <None Update="CoreTOC.dat">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
