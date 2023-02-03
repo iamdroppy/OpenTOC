@@ -37,7 +37,7 @@ public class Program
                 .OrderBy(s => s.SnoGroup)
                 .ThenBy(s => s.SnoId)
                 .GroupBy(x => x.SnoGroup, x => x)
-                .ToDictionary(s => s.Key, s => s.ToArray());
+                .ToDictionary(s => (SnoGroup)s.Key, s => s.ToArray());
             ctx.Status = "Extracting to [italic]exports.json[/]...";
             File.WriteAllText("exports.json",
                 JsonSerializer.Serialize(new { Data = body },
