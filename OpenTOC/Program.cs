@@ -1,9 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Threading;
-using SixLabors.ImageSharp.Processing;
+﻿using System.Text.Json;
 using Spectre.Console;
 
 namespace OpenTOC;

@@ -33,8 +33,7 @@ internal class TableOfContent
         var groupData = new List<ITableOfContentEntry>();
         // We loop through all the groups.
 
-        for (var i = 0; i < NumSnoGroups; i++)
-            // If the group has entries, we read them.
+        for (var i = 0; i < NumSnoGroups; i++) // If the group has entries, we read them.
         {
             if (header.EntryCounts[i] > 0)
             {
@@ -76,11 +75,9 @@ internal class TableOfContent
 
     private struct TableOfContentHeader
     {
-        // This is the number of groups in the TOC.
-        private const int NUM_SNO_GROUPS = 70;
-        public readonly int[] EntryCounts = new int[NUM_SNO_GROUPS];
-        public readonly int[] EntryOffsets = new int[NUM_SNO_GROUPS];
-        public readonly int[] EntryUnkCounts = new int[NUM_SNO_GROUPS];
+        public readonly int[] EntryCounts = new int[NumSnoGroups];
+        public readonly int[] EntryOffsets = new int[NumSnoGroups];
+        public readonly int[] EntryUnkCounts = new int[NumSnoGroups];
         public int I0;
 
         /// <summary>
@@ -90,18 +87,18 @@ internal class TableOfContent
 
         public TableOfContentHeader()
         {
-            EntryCounts = new int[NUM_SNO_GROUPS];
-            EntryOffsets = new int[NUM_SNO_GROUPS];
-            EntryUnkCounts = new int[NUM_SNO_GROUPS];
+            EntryCounts = new int[NumSnoGroups];
+            EntryOffsets = new int[NumSnoGroups];
+            EntryUnkCounts = new int[NumSnoGroups];
             I0 = 0;
         }
 
         public static TableOfContentHeader Read(BinaryReader reader)
         {
             var header = new TableOfContentHeader();
-            for (var i = 0; i < NUM_SNO_GROUPS; i++) header.EntryCounts[i] = reader.ReadInt32();
-            for (var i = 0; i < NUM_SNO_GROUPS; i++) header.EntryOffsets[i] = reader.ReadInt32();
-            for (var i = 0; i < NUM_SNO_GROUPS; i++) header.EntryUnkCounts[i] = reader.ReadInt32();
+            for (var i = 0; i < NumSnoGroups; i++) header.EntryCounts[i] = reader.ReadInt32();
+            for (var i = 0; i < NumSnoGroups; i++) header.EntryOffsets[i] = reader.ReadInt32();
+            for (var i = 0; i < NumSnoGroups; i++) header.EntryUnkCounts[i] = reader.ReadInt32();
             header.I0 = reader.ReadInt32();
             return header;
         }
